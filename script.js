@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 var firstNumber=1;
 var string="henlo";
 const third=3;
@@ -10,6 +10,9 @@ let tom={
     age:22,
     isMarried:false
 };
+*/
+
+
 //console.log(tom["name"]);
 //let answer=prompt("re u tom?");
 //console.log(typeof(null));
@@ -64,7 +67,8 @@ var appData={
 
 var budgetForMonth=appData.budget/30;
 //taskForCyclePart1__method1
-/*for(let i=0;i<2;i++){
+/*
+for(let i=0;i<2;i++){
     var expenceName=prompt("Введите обязательную статью расходов в этом месяце"),
     expenseSum=prompt("Во сколько обойдется?");
     if((typeof(expenceName)) ==='string' && typeof(expenceName)!=null 
@@ -72,18 +76,27 @@ var budgetForMonth=appData.budget/30;
             console.log("done");
             console.log(appData);
             appData.expence[expenceName]=expenseSum;
+    }else{
+        i--;
     }
 }*/
 //taskForCyclePart1__method2
-do{
+/*
+var count=0;
+while(count<2){
     var expenceName=prompt("Введите обязательную статью расходов в этом месяце"),
-    expenseSum=prompt("Во сколько обойдется?");
+        expenseSum=prompt("Во сколько обойдется?");
+    if((typeof(expenceName)) ==='string' && typeof(expenceName)!=null 
+        && typeof(expenseSum)!= null && expenceName !== "" && expenseSum !== ""){
+
         console.log("done");
         console.log(appData);
-        appData.expence[expenceName]=expenseSum;
+        appData.expence[expenceName]=expenseSum;   
+        count++;
+    } 
 } 
-while((typeof(expenceName)) ==='string' && typeof(expenceName)!=null 
-    && typeof(expenseSum)!= null && expenceName !== "" && expenseSum !== "");
+*/
+
 
 
 //console.log(appData.expenceName + ":" + appData.expenseSum);
