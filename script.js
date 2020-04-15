@@ -51,5 +51,42 @@ alert("Бюджет на 1 день: " + budgetForMonth);
 //"ёжик" > "яблоко" true
 //0 || "" || 2 || undefined || true || falsе 
 
+var money=+prompt("Ваш бюджет на месяц?");
+var time=prompt("Введите дату в формате YYYY-MM-DD");
+var appData={
+    budget:money,
+    timeData:time,
+    expence:{},
+    optionalExpenses:{},
+    income: [],
+    savings:false
+};
+
+var budgetForMonth=appData.budget/30;
+//taskForCyclePart1__method1
+/*for(let i=0;i<2;i++){
+    var expenceName=prompt("Введите обязательную статью расходов в этом месяце"),
+    expenseSum=prompt("Во сколько обойдется?");
+    if((typeof(expenceName)) ==='string' && typeof(expenceName)!=null 
+        && typeof(expenseSum)!= null && expenceName !== "" && expenseSum !== ""){
+            console.log("done");
+            console.log(appData);
+            appData.expence[expenceName]=expenseSum;
+    }
+}*/
+//taskForCyclePart1__method2
+do{
+    var expenceName=prompt("Введите обязательную статью расходов в этом месяце"),
+    expenseSum=prompt("Во сколько обойдется?");
+        console.log("done");
+        console.log(appData);
+        appData.expence[expenceName]=expenseSum;
+} 
+while((typeof(expenceName)) ==='string' && typeof(expenceName)!=null 
+    && typeof(expenseSum)!= null && expenceName !== "" && expenseSum !== "");
+
+
+//console.log(appData.expenceName + ":" + appData.expenseSum);
+alert("Бюджет на 1 день: " + budgetForMonth);
               
 
