@@ -1,24 +1,12 @@
 'use strict';
-/*
-var firstNumber=1;
-var string="henlo";
-const third=3;
-var smth;
-
-let tom={
-    name:"Tomiris",
-    age:22,
-    isMarried:false
-};
-*/
-
 
 //console.log(tom["name"]);
 //let answer=prompt("re u tom?");
 //console.log(typeof(null));
 //console.log(typeof(4+ +"object"));
 //console.log(2==="2");
-//tasl1
+
+//task1
 /*
 var money=+prompt("Ваш бюджет на месяц?");
 var time=prompt("Введите дату в формате YYYY-MM-DD");
@@ -54,18 +42,49 @@ alert("Бюджет на 1 день: " + budgetForMonth);
 //"ёжик" > "яблоко" true
 //0 || "" || 2 || undefined || true || falsе 
 
-var money=+prompt("Ваш бюджет на месяц?");
-var time=prompt("Введите дату в формате YYYY-MM-DD");
+var money, time, expenceName, expenseSum, optExpenceName, optExpenceNum;
+
+function start(){
+    while(isNaN(money) || money == null || money == ""){
+        money=+prompt("Ваш бюджет на месяц?");
+        time=prompt("Введите дату в формате YYYY-MM-DD");
+    }
+}
+start();
+
+function countExpences(){
+    while(expenceName==null || expenseSum == null || expenceName == "" && expenseSum == ""){
+        expenceName=prompt("Введите обязательную статью расходов в этом месяце"),
+        expenseSum=+prompt("Во сколько обойдется?");
+    }
+}
+countExpences();
+
+function chooseOptExpences(){
+    while( optExpenceName == "" || optExpenceName==null){
+    for(optExpenceNum=0;optExpenceNum<=2;optExpenceNum++){
+        
+            optExpenceName=prompt("Статья необязательных расходов?");
+        }  
+    }
+}
+chooseOptExpences();
+
 var appData={
     budget:money,
     timeData:time,
-    expence:{},
-    optionalExpenses:{},
+    expence:{sum:expenseSum},
+    //optionalExpenses:{name:optExpenceName, number:optExpenceNum},
+    optionalExpenses:[
+        {name:optExpenceName, number:optExpenceNum},
+        {name:optExpenceName, number:optExpenceNum},
+        {name:optExpenceName, number:optExpenceNum},
+    ],
     income: [],
-    savings:false
+    savings:true
 };
 
-var budgetForMonth=appData.budget/30;
+//var budgetForMonth=appData.budget/30;
 //taskForCyclePart1__method1
 /*
 for(let i=0;i<2;i++){
@@ -98,8 +117,46 @@ while(count<2){
 */
 
 
+function depositEarnings(){
+    if(appData.savings==true){
+        var depoSum = +prompt("Какая сумма у вас имеется в депозите?");
+        var depoPercent = +prompt("Какой % депозита?");
+        appData.monthIncome=depoSum/100/12*depoPercent;
+        console.log("Ваша прибыль на месяц:" + appData.monthIncome);
+    }
+}
+depositEarnings();
+
+function detectDayBudget(){
+    var budgetForDay=appData.expence.sum;
+    console.log(budgetForDay);
+}
+detectDayBudget();
+
+function detectLevel(){
+    if(appData.budget<100000){
+        console.log("Минимальный заработок: "+ appData.budget);
+    } else if(appData.budget>150000 && appData.budget<300000){
+        console.log("Средний заработок: " + appData.budget) ;
+    } else if(appData.budget>300000){
+        console.log("Хороший заработок: "+ appData.budget);
+    }else{
+        console.log("Произашла ошибка");
+    } 
+}
+detectLevel();
+for(let key in appData){
+    console.log( key+" "+appData[key])
+}
+
+appData.optionalExpenses.forEach(function(item, i){
+    console.log(i + ":" + item);
+});
+
+
+
 
 //console.log(appData.expenceName + ":" + appData.expenseSum);
-alert("Бюджет на 1 день: " + budgetForMonth);
+//alert("Бюджет на 1 день: " + budgetForMonth);
               
 
